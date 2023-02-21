@@ -3,6 +3,8 @@ import * as fsWalk from '@nodelib/fs.walk'
 
 // https://www.npmjs.com/package/@nodelib/fs.walk
 
+const errorFilter = (error) => error.code === 'EACCES' || 'EPERM'
+
 const ignoreDirs = [/[.]git[/]/, /[/]node_modules[/]/]
 
 /**
@@ -42,7 +44,7 @@ const runGlob = function (searchStr, path, ignoreDirs) {
 
   // Transform a function that uses a callback into one that returns a promise.
   const walk = util.promisify(fsWalk.walk)
-  return walk(path ?? '.', { deepFilter: searchThis }).then((response) =>
+  return walk(path ?? '.', { deepFilter: searchThis, errorFilter: errorFilter }).then((response) =>
     response.filter((entry) => searchReg.test(entry.path))
   )
 }

@@ -2,8 +2,10 @@ import { contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 import { runGlob } from '../main/filesearcher'
 
+const HOME = process.env.HOME
+
 // Custom APIs for renderer
-const api = { runGlob: runGlob }
+const api = { runGlob: runGlob, HOME: HOME }
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
