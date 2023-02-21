@@ -1,6 +1,8 @@
 import util from 'node:util'
 import * as fsWalk from '@nodelib/fs.walk'
 
+// https://www.npmjs.com/package/@nodelib/fs.walk
+
 const ignoreDirs = [/[.]git[/]/, /[/]node_modules[/]/]
 
 /**
