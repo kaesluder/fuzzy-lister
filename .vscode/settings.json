@@ -1,0 +1,21 @@
+{
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorCustomizations": {
+    "tab.activeBorderTop": "#ff0000",
+    "[Monokai]": {
+      "tab.activeBorderTop": "#ff0000"
+    },
+    "activityBar.background": "#06360B",
+    "titleBar.activeBackground": "#084C0F",
+    "titleBar.activeForeground": "#F1FDF2"
+  },
+  "cSpell.words": ["filesearcher", "kaesluder", "venv"]
+}
