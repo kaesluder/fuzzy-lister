@@ -3,6 +3,13 @@ import * as fsWalk from '@nodelib/fs.walk'
 
 const ignoreDirs = [/[.]git[/]/, /[/]node_modules[/]/]
 
+/**
+ * Filter predicate to determine if a directory should be
+ * ignored or not.
+ * @param {fsWalk.Entry} entry Entry to match against.
+ * @param {Regexp[]} ignoreDirs List of RegExps to match directories to ignore.
+ * @returns {Boolean}
+ */
 const ignore = function (entry, ignoreDirs) {
   for (let i in ignoreDirs) {
     let dr = new RegExp(ignoreDirs[i])
@@ -13,6 +20,13 @@ const ignore = function (entry, ignoreDirs) {
   return false
 }
 
+/**
+ * Run a search query and return a list of matching fsWalk entries.
+ * @param {String} searchStr Regexp or string to match against target path.
+ * @param {String} path Source path from which to start searching.
+ * @param {String[]} ignoreDirs List matching dirs to ignore.
+ * @returns
+ */
 const runGlob = function (searchStr, path, ignoreDirs) {
   // todo ramda might make this easier
   const searchThis = (entry) => {
