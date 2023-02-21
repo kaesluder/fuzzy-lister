@@ -24,7 +24,10 @@ function App() {
     /uberjar$/,
     /src-tauri$/,
     /coverage$/,
-    /htmlcov$/
+    /htmlcov$/,
+    window.api.HOME + '/.Trash$',
+    window.api.HOME + '/Library$',
+    window.api.HOME + '/Applications$'
   ]
 
   useEffect(() => {
